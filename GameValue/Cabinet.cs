@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 using System.Text;
 
 namespace GameUtility.GameValue
 {
-    class Basement<T>:IGameValue
+    class Cabinet:IGameValue
     {
+        #region 静态属性
+        public const string default_name = "未命名柜子";
+        #endregion
+
         #region 索引器声明及实现
 
         #region IGameValue接口需要实现的
@@ -53,9 +56,21 @@ namespace GameUtility.GameValue
         #endregion
         #endregion
 
+
+
         #region 成员变量声明
-        public Type template_type = typeof(T);
+        public Dictionary<string, IGameValue> _dynamic_properties;
         private string _name;
+        #endregion
+
+        #region 成员函数声明及实现
+        public Cabinet()
+        {
+            _name = default_name;
+            _dynamic_properties = new Dictionary<string, IGameValue>();
+        }
+
+        public StringBuilder Individual
         #endregion
     }
 }

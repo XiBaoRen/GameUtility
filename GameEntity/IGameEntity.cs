@@ -6,6 +6,6 @@ namespace GameUtility.GameEntity
 {
     interface IGameEntity
     {
-
+        public string name { get; set; }
     }
 }
